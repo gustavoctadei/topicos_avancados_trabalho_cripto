@@ -1,3 +1,3 @@
 # Trabalho de Topicos Avancados - Criptografia
 
-print("Teste")
+mensagem = "texto claro"
