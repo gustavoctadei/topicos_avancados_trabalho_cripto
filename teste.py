@@ -16,3 +16,14 @@ binary_array = binary_int.to_bytes(byte_number, "big")
 ascii_text = binary_array.decode()
 
 print(ascii_text)
+
+# Recebendo A chave e convertendo p/ uma lista de int
+
+chave_string = input('Digite a chave: ')
+chave_string = chave_string.split(',')
+chave = []
+
+for i in range( len(chave_string) ):
+    chave.append(int(chave_string[i]))
+
+print(chave)
