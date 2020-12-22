@@ -35,3 +35,4 @@ cod_ascii = int(ord(caractere))
 representacao_binaria = bin(cod_ascii)[2:]
 representacao_binaria = representacao_binaria.zfill(8)
 print(representacao_binaria)
+print(type(representacao_binaria))
