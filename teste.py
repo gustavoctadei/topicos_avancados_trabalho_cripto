@@ -30,9 +30,15 @@
 
 # Convertendo char para binario
 
-caractere = 'b'
+caractere = 'z'
 cod_ascii = int(ord(caractere))
-representacao_binaria = bin(cod_ascii)[2:]
-representacao_binaria = representacao_binaria.zfill(8)
+representacao_binaria = bin(cod_ascii)[2:].zfill(8)
 print(representacao_binaria)
-print(type(representacao_binaria))
+
+inteiro = int(representacao_binaria, 2)
+caractere_convertido = chr(inteiro)
+print(caractere_convertido)
+
+inteiro = 1
+caract = str(inteiro)
+print(caract)

@@ -60,6 +60,25 @@ def posicao_na_chave(chave, numero):
             return i
 
 
+def operador_xor(caractere, algarismo_chave):
+    cod_ascii = int(ord(caractere))
+
+    representacao_binaria_caractere = bin(cod_ascii)[2:].zfill(8)
+    representacao_binaria_algarismo = bin(algarismo_chave)[2:].zfill(8)
+    resultado = ""
+
+    i = 0
+    while i < 8:
+        if representacao_binaria_caractere[i] != representacao_binaria_algarismo[i]:
+            resultado = resultado + "1"
+        else:
+            resultado = resultado + "0"
+        i += 1
+
+    resultado_inteiro = int(resultado, 2)
+    return chr(resultado_inteiro)
+
+
 def quebrar_string_chunks(mensagem, tamanho_chunk):
     chunks = []
 
@@ -120,6 +139,19 @@ def cifra_polialfabetica(mensagem, chave):
     return saida
 
 
+def cifra_fluxo(mensagem, chave):
+    saida = ""
+    tamanho_chave = len(chave)
+    chunks = quebrar_string_chunks(mensagem, tamanho_chave)
+
+    for chunk in chunks:
+        for i in range(len(chunk)):
+            resultado_xor = operador_xor(chunk[i], chave[i])
+            saida = saida + resultado_xor
+
+    return saida
+
+
 mensagem_input = "texto qualquer"
 chave_input = "4,3,1,2"
 
@@ -130,4 +162,7 @@ mensagem_cifrada = cifra_cerca_trilho(mensagem_input, chave)
 print(mensagem_cifrada)
 
 mensagem_cifrada = cifra_polialfabetica(mensagem_cifrada, chave)
+print(mensagem_cifrada)
+
+mensagem_cifrada = cifra_fluxo(mensagem_cifrada, chave)
 print(mensagem_cifrada)
