@@ -1,4 +1,8 @@
-# Trabalho de Topicos Avancados - Criptografia
+# Universidade Federal de Rondônia
+# Ciência da Computação
+# Trabalho de Tópicos Avançados I - Criptografia
+# Gustavo Cavalcante Tadei
+# Interpretador: Python 3.9.0 - Windows 10 x64
 
 def representacao_numerica(letra):
     alfabeto = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
