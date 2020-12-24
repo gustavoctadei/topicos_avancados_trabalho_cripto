@@ -142,27 +142,24 @@ def cifra_polialfabetica(mensagem, chave):
 def cifra_fluxo(mensagem, chave):
     saida = ""
     tamanho_chave = len(chave)
-    chunks = quebrar_string_chunks(mensagem, tamanho_chave)
 
-    for chunk in chunks:
-        for i in range(len(chunk)):
-            resultado_xor = operador_xor(chunk[i], chave[i])
-            saida = saida + resultado_xor
+    for i in range(len(mensagem)):
+        posicao = i % tamanho_chave
+        resultado = operador_xor(mensagem[i], chave[posicao])
+        saida = saida + resultado
 
     return saida
 
 
-mensagem_input = "texto qualquer"
-chave_input = "4,3,1,2"
+mensagem = input()
+chave = input()
 
-chave = formatar_chave(chave_input)
+chave = formatar_chave(chave)
 tamanho_chave = len(chave)
 
-mensagem_cifrada = cifra_cerca_trilho(mensagem_input, chave)
-print(mensagem_cifrada)
+mensagem = cifra_cerca_trilho(mensagem, chave)
 
-mensagem_cifrada = cifra_polialfabetica(mensagem_cifrada, chave)
-print(mensagem_cifrada)
+mensagem = cifra_polialfabetica(mensagem, chave)
 
-mensagem_cifrada = cifra_fluxo(mensagem_cifrada, chave)
-print(mensagem_cifrada)
+mensagem = cifra_fluxo(mensagem, chave)
+print(mensagem)
